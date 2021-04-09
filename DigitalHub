@@ -3,6 +3,35 @@ require(game:GetService("ReplicatedStorage").Game.Notification).new({
                     Text = "Game detected is JailBreak,", --the text
                     Duration = 4 --how long this will be on screen
                 })
+_G.ARt = true
+        local Falling
+       for i,v in pairs(getgc(true)) do
+            if type(v) == "table" and rawget(v, 'Ragdoll') and rawget(v, 'Unragdoll') then
+                Falling = v
+            end
+       end
+        local oldRagdoll = Falling.Ragdoll
+        Falling.Ragdoll = function(...)
+            if _G.ARt then
+                return wait(9e9)
+            else
+                return oldRagdoll(...)
+            end
+        end
+        wait(0.1)
+local mouse = game:GetService('Players').LocalPlayer:GetMouse()
+
+local function hotkeyHandler(key)
+  if (key == 'q') then
+    for _, v in next, getgc(true) do
+      if (type(v) == 'table' and rawget(v, 'Nitro')) then
+        v.Nitro = 250
+      end
+    end
+  end
+end
+
+mouse.KeyDown:connect(hotkeyHandler)
 game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(k)
 if k == "e" then
 local Gun = game.ReplicatedStorage.Weapons:FindFirstChild(game.Players.LocalPlayer.NRPBS.EquippedTool.Value);
