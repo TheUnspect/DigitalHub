@@ -1,4 +1,8 @@
 if game.PlaceId==286090429 then
+require(game:GetService("ReplicatedStorage").Game.Notification).new({
+                    Text = "Game detected is JailBreak,", --the text
+                    Duration = 4 --how long this will be on screen
+                })
 game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(k)
 if k == "e" then
 local Gun = game.ReplicatedStorage.Weapons:FindFirstChild(game.Players.LocalPlayer.NRPBS.EquippedTool.Value);
