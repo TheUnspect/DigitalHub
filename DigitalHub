@@ -1,3 +1,4 @@
+print "loaded"
 if game.PlaceId==286090429 then
 require(game:GetService("ReplicatedStorage").Game.Notification).new({
                     Text = "Game detected is JailBreak,", --the text
