@@ -1,1 +1,1 @@
-game.Players.LocalPlayer:Kick("You where banned by asimo , fucked by me and join game XDDD toled ezzzz")
+game:GetService("Players").LocalPlayer:Kick("You where banned")
