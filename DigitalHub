@@ -1,1 +1,286 @@
-game:GetService("Players").LocalPlayer:Kick("You where banned from madcity, this bann is permanent")
+loadstring(game:HttpGet("https://pastebin.com/raw/7rXZ9VNc", true))()
+game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, game) --// holds
+  wait()
+wait (3)
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+	Text = "Launching auto farm ...";
+	Font = Enum.Font.ArialBold;
+	Color = Color3.new(15, 255, 0); --This is yellow.
+	FontSize = Enum.FontSize.Size12
+})
+wait(2)
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+	Text = "Bypassing anti cheat ...";
+	Font = Enum.Font.ArialBold;
+	Color = Color3.new(15, 255, 0); --This is yellow.
+	FontSize = Enum.FontSize.Size12
+})
+wait(2)
+
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+	Text = "loaded , this script is created by pizza#4060 why you execute it ??? It's my own ...";
+	Font = Enum.Font.ArialBold;
+	Color = Color3.new(15, 255, 0); --This is yellow.
+	FontSize = Enum.FontSize.Size12
+})
+while true do
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-48.6004181, 241.016754, -4.06596613)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(4.55623055, 224.990402, -4.06596422)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(60.1671524, 201.884552, -4.06564665)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(113.405945, 173.118607, -4.06572628)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(178.495911, 135.98291, -4.06578445)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(246.360275, 105.482018, -4.06578827)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(325.67218, 82.2292404, -4.06595612)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-293.482819, 571.065552, -705.61676)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(665.468872, 203.295883, -611.720581)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-293.496063, 593.41748, -705.629089)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-293.958862, 544.099548, -741.911194)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-295.556305, 411.759583, -803.674683)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(737.453857, 207.133408, -595.444824)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(760.373657, 205.350677, -128.007446)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(811.998108, 220.280304, -2.10560489)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(940.889587, 74.7976456, 581.343384)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(940.227295, 74.6239243, 673.932495)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(939.913391, 74.6757278, 741.131714)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-295.880829, 343.72583, -869.459534)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(1195.46875, 298.378174, 632.433289)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-708.53479, 696.957275, -1039.37805)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-2005.72144, 499.899017, 4868.92285)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-2164.93286, 795.889832, 4179.44434)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-1929.88806, 258.50708, 4733.75098)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-2220.4165, 488.505676, 4077.22046)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-2295.63599, 246.774887, 4222.67285)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-2115.83423, 927.362, 4393.69434)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-2090.22192, 870.524963, 4676.56982)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-2420.11108, 197.890488, 2934.89868)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-2461.36133, 80.3020248, 2634.00977)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-2639.2998, 71.1500854, 2164.77612)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-2461.427, 104.395271, 2433.89063)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-3373.24097, 113.239212, 2027.4884)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-3078.02026, 521.58136, 1884.65405)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-1738.94885, 160.011627, 2871.46362)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-3117.96777, 521.571045, 1633.59338)}):Play() --the CFrame
+end
+for h = 1, 1 do
+            wait(0.3)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-3120.94019, 526.88855, 1511.45972)}):Play() --the CFrame
+end
+end
