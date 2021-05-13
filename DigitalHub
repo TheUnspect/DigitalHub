@@ -85,7 +85,7 @@ closebutton.Name = "closebutton"
 closebutton.Parent = ScreenGui
 closebutton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 closebutton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-closebutton.Position = UDim2.new(0.00584942894, 0, 0.492226928, 0)
+closebutton.Position = UDim2.new(0.00584942941, 0, 0.941571414, 0)
 closebutton.Size = UDim2.new(0, 111, 0, 35)
 closebutton.Font = Enum.Font.SourceSans
 closebutton.Text = "Close "
@@ -96,7 +96,7 @@ openbutton.Name = "openbutton"
 openbutton.Parent = ScreenGui
 openbutton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 openbutton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-openbutton.Position = UDim2.new(0.00584942894, 0, 0.43024838, 0)
+openbutton.Position = UDim2.new(0.00584942894, 0, 0.883168519, 0)
 openbutton.Size = UDim2.new(0, 111, 0, 35)
 openbutton.Font = Enum.Font.SourceSans
 openbutton.Text = "Open "
@@ -105,7 +105,7 @@ openbutton.TextSize = 22.000
 
 -- Scripts:
 
-local function YOXAH_fake_script() -- toggle.Script 
+local function RUXIBL_fake_script() -- toggle.Script 
 	local script = Instance.new('Script', toggle)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -764,8 +764,8 @@ local function YOXAH_fake_script() -- toggle.Script
 	
 	end)
 end
-coroutine.wrap(YOXAH_fake_script)()
-local function OYJGL_fake_script() -- ScreenGui.Script 
+coroutine.wrap(RUXIBL_fake_script)()
+local function FRFUUN_fake_script() -- ScreenGui.Script 
 	local script = Instance.new('Script', ScreenGui)
 
 	frame = script.Parent.frame1
@@ -773,8 +773,8 @@ local function OYJGL_fake_script() -- ScreenGui.Script
 	frame.Selectable = true
 	frame.Active = true
 end
-coroutine.wrap(OYJGL_fake_script)()
-local function KWDT_fake_script() -- closebutton.Script 
+coroutine.wrap(FRFUUN_fake_script)()
+local function LTKF_fake_script() -- closebutton.Script 
 	local script = Instance.new('Script', closebutton)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -784,8 +784,8 @@ local function KWDT_fake_script() -- closebutton.Script
 		script.Parent.Parent.closebutton.Visible = false
 	end)
 end
-coroutine.wrap(KWDT_fake_script)()
-local function WNTDH_fake_script() -- openbutton.Script 
+coroutine.wrap(LTKF_fake_script)()
+local function BORUYFT_fake_script() -- openbutton.Script 
 	local script = Instance.new('Script', openbutton)
 
 	script.Parent.MouseButton1Click:connect(function()
@@ -795,4 +795,4 @@ local function WNTDH_fake_script() -- openbutton.Script
 		script.Parent.Parent.closebutton.Visible = true
 	end)
 end
-coroutine.wrap(WNTDH_fake_script)()
+coroutine.wrap(BORUYFT_fake_script)()
