@@ -1,36 +1,709 @@
-lp = game:service'Players'.LocalPlayer
-uis = lp:GetMouse()
-uis.KeyDown:Connect(function(key)
-    if key == 'W' or key == 'w' then
-        W = true
-    end
+-- Build a boat
+if game.PlaceId == 537413528 then
+-- init
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+local venyx = library.new("Digital Hub", 5013109572)
+
+-- themes
+local themes = {
+Background = Color3.fromRGB(100,100, 100),
+Glow = Color3.fromRGB(150, 150, 150),
+Accent = Color3.fromRGB(100, 100, 100),
+LightContrast = Color3.fromRGB(20, 20, 20),
+DarkContrast = Color3.fromRGB(14, 14, 14),  
+TextColor = Color3.fromRGB(255, 255, 255)
+}
+
+-- 1ERE PAGE
+local page = venyx:addPage("Local Player", 5012544693)
+local section1 = page:addSection("Local Player")
+--WalkSpeed
+section1:addSlider("WalkSpeed", 0, 0, 500, function(Maxence)
+    getgenv().WalkSpeedValue = Maxence;
+    local Player = game:service'Players'.LocalPlayer;
+    Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+    Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+    end)
+    Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
 end)
-uis.KeyUp:Connect(function(key)
-    if key == 'W' or key == 'w' then
-        W = false
-    end
+--JumpPower
+section1:addSlider("JumpPower", 0, 0, 500, function(s)
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
-lp = game:service'Players'.LocalPlayer.Character
-for i,v in pairs(workspace.Vehicles:GetDescendants()) do
-    if v:IsA"StringValue" then
-        if v.Value == game:service'Players'.LocalPlayer.Name then
-            car = v.Parent.Parent
-        end
+--Gravity
+section1:addSlider("Gravity", 0, 0, 500, function(s)
+game.Workspace.Gravity = s
+end)
+--Infini Jump
+section1:addToggle("Infini Jump", nil, function(value)
+ if value then
+    _G.infinjump = true
+
+    local Player = game:GetService("Players").LocalPlayer
+    local Mouse = Player:GetMouse()
+    Mouse.KeyDown:connect(function(k)
+    if _G.infinjump then
+    if k:byte() == 32 then
+    Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+    Humanoid:ChangeState("Jumping")
+    wait(0.1)
+    Humanoid:ChangeState("Seated")
     end
+    end
+    end)
+    
+    local Player = game:GetService("Players").LocalPlayer
+    local Mouse = Player:GetMouse()
+    Mouse.KeyDown:connect(function(k)
+    k = k:lower()
+    if k == "f" then
+    if _G.infinjump == true then
+    _G.infinjump = false
+    else
+    _G.infinjump = true
+    end
+    end
+    end)
+else
+    _G.infinjump = false
+
+    local Player = game:GetService("Players").LocalPlayer
+    local Mouse = Player:GetMouse()
+    Mouse.KeyDown:connect(function(k)
+    if _G.infinjump then
+    if k:byte() == 32 then
+    Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+    Humanoid:ChangeState("Jumping")
+    wait(0.1)
+    Humanoid:ChangeState("Seated")
+    end
+    end
+    end)
+    
+    local Player = game:GetService("Players").LocalPlayer
+    local Mouse = Player:GetMouse()
+    Mouse.KeyDown:connect(function(k)
+    k = k:lower()
+    if k == "f" then
+    if _G.infinjump == true then
+    _G.infinjump = false
+    else
+    _G.infinjump = true
+    end
+    end
+    end)
 end
-_G.Fly = game:service'RunService'.Stepped:Connect(function()
-    if car then
-        for i,v in pairs(car:GetDescendants()) do
-            if v:IsA"BasePart" then
-                v.Velocity = Vector3.new(0,0,0)
-            end
-        end
-    end
-    if W and car then
-        for i,v in pairs(car:GetDescendants()) do
-            if v:IsA"BasePart" then
-                v.CFrame = v.CFrame + workspace.CurrentCamera.CFrame.LookVector*2.5
-            end
-        end
-    end
 end)
+section1:addButton("Copy position", function(value)
+    local position = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+print(position)
+setclipboard(tostring(position))
+end)
+
+section1:addButton("Godmode", function(value)
+    game:GetService("Players").LocalPlayer.Character.WaterDetector:Destroy()
+    end)
+section1:addButton("Get all item", function()
+    for i, v in pairs (game:GetService("ReplicatedStorage").BuildingParts:GetChildren()) do
+        if v:IsA("Tool") then
+        pizza = v:Clone()
+        pizza.Parent = game:GetService("Players").LocalPlayer:FindFirstChild("Backpack")
+        end
+        end
+end)
+-- 2EME PAGE
+local page = venyx:addPage("Auto Farm", 5012544693)
+local section2 = page:addSection("Auto Farm,for toggle the auto farm wait until finish.")
+section2:addToggle("Auto Farm (wait 5 sec for launching)", nil, function(value)
+    if value then
+-- Départ part
+noclip = true
+game:GetService('RunService').Stepped:connect(function()
+if noclip then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+end
+end)
+-- auto farm begin
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local pizza = Instance.new("Part",game.Workspace)
+pizza.Position = Vector3.new(-51.48583984375, 73.491851806641, 1119.4997558594)
+pizza.Size = Vector3.new(20, 1, 20)
+pizza.Anchored = true
+_G.loop = true
+while _G.loop == true do
+wait(5)
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001), {CFrame = CFrame.new(-52.596206665039, 76.989852905273, 1118.3553466797)}):Play()
+wait(1)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-60.16459274292, 85.572601318359, 1354.4781494141)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-60.189674377441, 88.210868835449, 1384.9544677734)}):Play()
+end
+wait(2.5)
+-- 2
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-69.241088867188, 65.723701477051, 2122.0249023438)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-67.463439941406, 69.229774475098, 2157.3540039063)}):Play()
+end
+wait(2.5)
+-- 3
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-65.186393737793, 57.91911315918, 2893.5300292969)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-64.81861114502, 58.993129730225, 2927.0300292969)}):Play()
+end
+wait(2.5)
+-- 4
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-62.777538299561, 58.961685180664, 3661.3637695313)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-63.019855499268, 59.713577270508, 3692.5981445313)}):Play()
+end
+wait(2.5)
+-- 5
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-64.303955078125, 36.33264541626, 4432.6748046875)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-64.835739135742, 37.146369934082, 4464.6484375)}):Play()
+end
+wait(2.5)
+-- 6
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-46.340991973877, 39.498222351074, 5202.9853515625)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-45.0784034729, 40.393859863281, 5232.7094726563)}):Play()
+end
+wait(2.5)
+-- 7
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-101.4655380249, 41.885120391846, 6745.0336914063)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-101.20602416992, 42.585746765137, 6775.51171875)}):Play()
+end
+wait(2.5)
+-- 8
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-57.240825653076, 22.430334091187, 7515.1127929688)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-57.977272033691, 23.251466751099, 7542.0551757813)}):Play()
+end
+wait(2.5)
+-- 8
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-69.306327819824, 38.877582550049, 8285.240234375)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-68.707443237305, 39.756172180176, 8313.529296875)}):Play()
+end
+wait(2.5)
+-- Coffre
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-56.652069091797, -360.41107177734, 9489.5107421875)}):Play()
+wait(10)
+end
+end
+   else
+-- Départ part
+noclip = true
+game:GetService('RunService').Stepped:connect(function()
+if noclip then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+end
+end)
+-- auto farm begin
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local pizza = Instance.new("Part",game.Workspace)
+pizza.Position = Vector3.new(-51.48583984375, 73.491851806641, 1119.4997558594)
+pizza.Size = Vector3.new(20, 1, 20)
+pizza.Anchored = true
+_G.loop = false
+while _G.loop == true do
+wait(5)
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001), {CFrame = CFrame.new(-52.596206665039, 76.989852905273, 1118.3553466797)}):Play()
+wait(1)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-60.16459274292, 85.572601318359, 1354.4781494141)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-60.189674377441, 88.210868835449, 1384.9544677734)}):Play()
+end
+wait(2.5)
+-- 2
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-69.241088867188, 65.723701477051, 2122.0249023438)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-67.463439941406, 69.229774475098, 2157.3540039063)}):Play()
+end
+wait(2.5)
+-- 3
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-65.186393737793, 57.91911315918, 2893.5300292969)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-64.81861114502, 58.993129730225, 2927.0300292969)}):Play()
+end
+wait(2.5)
+-- 4
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-62.777538299561, 58.961685180664, 3661.3637695313)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-63.019855499268, 59.713577270508, 3692.5981445313)}):Play()
+end
+wait(2.5)
+-- 5
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-64.303955078125, 36.33264541626, 4432.6748046875)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-64.835739135742, 37.146369934082, 4464.6484375)}):Play()
+end
+wait(2.5)
+-- 6
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-46.340991973877, 39.498222351074, 5202.9853515625)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-45.0784034729, 40.393859863281, 5232.7094726563)}):Play()
+end
+wait(2.5)
+-- 7
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-101.4655380249, 41.885120391846, 6745.0336914063)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-101.20602416992, 42.585746765137, 6775.51171875)}):Play()
+end
+wait(2.5)
+-- 8
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-57.240825653076, 22.430334091187, 7515.1127929688)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-57.977272033691, 23.251466751099, 7542.0551757813)}):Play()
+end
+wait(2.5)
+-- 8
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-69.306327819824, 38.877582550049, 8285.240234375)}):Play()
+end
+wait(0.3)
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(2),{CFrame = CFrame.new(-68.707443237305, 39.756172180176, 8313.529296875)}):Play()
+end
+wait(2.5)
+-- Coffre
+for h = 1, 1 do
+    wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-56.652069091797, -360.41107177734, 9489.5107421875)}):Play()
+wait(10)
+end
+end
+   end
+   end)
+   section2:addToggle("Claim gold automatically", nil, function(value)
+    if value then
+        _G.run = true
+        while _G.run do
+        wait(20)
+        workspace.ClaimRiverResultsGold:FireServer()
+        end
+   else
+    _G.run = false
+    while _G.run do
+    wait(20)
+    workspace.ClaimRiverResultsGold:FireServer()
+    end
+   end
+   end)
+   -- 3EME PAGE gamepass
+local page = venyx:addPage("Gamepass", 5012544693)
+local section3 = page:addSection("Free gamepass")
+section3:addToggle("Fox character", nil, function(value)
+    if value then
+        CC = game:GetService("Workspace").ChangeCharacter
+        CC:FireServer("FoxCharacter")
+   else
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+   end
+   end)
+   section3:addToggle("Chicken Character", nil, function(value)
+    if value then
+        CC = game:GetService("Workspace").ChangeCharacter
+        CC:FireServer("ChickenCharacter")
+   else
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+   end
+   end)
+   section3:addToggle("Penguin Character", nil, function(value)
+    if value then
+        CC = game:GetService("Workspace").ChangeCharacter
+        CC:FireServer("PenguinCharacter")
+   else
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+   end
+   end)
+   -- 4eme page teleport
+local page = venyx:addPage("Teleports", 5012544693)
+local section4 = page:addSection("Teleports")
+section4:addButton("Green team", function()
+    for h = 1, 1 do
+        wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-587.41479492188, -9.7019844055176, 297.67156982422)}):Play() --the CFrame
+end
+end)
+section4:addButton("Blue Team", function()
+    for h = 1, 1 do
+        wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(393.12683105469, -9.7019968032837, 297.86569213867)}):Play() --the CFrame
+end
+end)
+section4:addButton("White Team", function()
+    for h = 1, 1 do
+        wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(390.07360839844, -9.7019968032837, -66.629432678223)}):Play() --the CFrame
+end
+end)
+section4:addButton("Red Team", function()
+    for h = 1, 1 do
+        wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-50.219646453857, -9.7019968032837, -503.83349609375)}):Play() --the CFrame
+end
+end)
+section4:addButton("Black Team", function()
+    for h = 1, 1 do
+        wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-501.62182617188, -9.701997756958, -70.923080444336)}):Play() --the CFrame
+end
+end)
+section4:addButton("Yellow Team", function()
+    for h = 1, 1 do
+        wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(-520.96136474609, -9.701997756958, 642.25561523438)}):Play() --the CFrame
+end
+end)
+section4:addButton("Purple Team", function()
+    for h = 1, 1 do
+        wait(0)
+local TweenService = game:GetService('TweenService')
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+TweenService:Create(char.HumanoidRootPart, TweenInfo.new(0.001),{CFrame = CFrame.new(389.40640258789, -9.7019968032837, 650.50140380859)}):Play() --the CFrame
+end
+end)
+local page = venyx:addPage("Setting", 5012544693)
+local section5 = page:addSection("Setting")
+section5:addKeybind("Toggle Keybind", Enum.KeyCode.One, function()
+	print("Activated Keybind")
+	venyx:toggle()
+end, function()
+	print("Changed Keybind")
+end)
+section5:addButton("Join same server", function()
+    game:GetService("TeleportService"):Teleport(537413528, game:GetService("Players").LocalPlayer)
+end)
+section5:addButton("Made by Pizza#9999", function()
+    setclipboard("Made by Pizza#9999")
+end)
+section5:addButton("Copy My Discord To Clipboard", function()
+    setclipboard("Pizza#9999")
+end)
+section5:addButton("Status : Undetected", function()
+    setclipboard("Yes dude it's undetected")
+end)
+local page = venyx:addPage("Miscellaneous", 5012544693)
+local section6 = page:addSection("Teams Launch")
+section6:addButton("Launch bleue Team", function()
+    workspace["Really blueZone"].RE:FireServer()
+end)
+section6:addButton("Launch green Team", function()
+    workspace.CamoZone.RE:FireServer()
+end)
+section6:addButton("Launch black Team", function()
+    workspace.BlackZone.RE:FireServer()
+end)
+section6:addButton("Launch yellow Team", function()
+workspace["New YellerZone"].RE:FireServer()
+end)
+section6:addButton("Launch white Team", function()
+    workspace.WhiteZone.RE:FireServer()
+end)
+section6:addButton("Launch red Team", function()
+    workspace["Really redZone"].RE:FireServer()
+end)
+section6:addButton("Launch purple Team", function()
+    workspace.MagentaZone.RE:FireServer()
+end)
+local section6 = page:addSection("Join Teams")
+section6:addButton("Join Bleue Team", function()
+local ohInstance1 = game:GetService("Teams").blue
+workspace.ChangeTeam:FireServer(ohInstance1)
+end)
+section6:addButton("Join Green Team", function()
+    local ohInstance1 = game:GetService("Teams").green
+    workspace.ChangeTeam:FireServer(ohInstance1)
+end)
+section6:addButton("Join black Team", function()
+    local ohInstance1 = game:GetService("Teams").black
+    workspace.ChangeTeam:FireServer(ohInstance1)
+end)
+section6:addButton("Join yellow Team", function()
+local ohInstance1 = game:GetService("Teams").yellow
+workspace.ChangeTeam:FireServer(ohInstance1)
+end)
+section6:addButton("Join white Team", function()
+local ohInstance1 = game:GetService("Teams").white
+workspace.ChangeTeam:FireServer(ohInstance1)
+end)
+section6:addButton("Join red Team", function()
+local ohInstance1 = game:GetService("Teams").red
+workspace.ChangeTeam:FireServer(ohInstance1)
+end)
+section6:addButton("Join purple Team", function()
+local ohInstance1 = game:GetService("Teams").magenta
+workspace.ChangeTeam:FireServer(ohInstance1)
+end)
+local section6 = page:addSection("Buy Chest")
+section6:addSlider("Buy Common Chest", 0, 0, 100, function(ez)
+local ohString1 = "Common Chest"
+local ohNumber2 = ez
+workspace.ItemBoughtFromShop:InvokeServer(ohString1, ohNumber2)
+end)
+section6:addSlider("Buy Uncommon Chest", 0, 0, 100, function(ezz)
+local ohString1 = "Uncommon Chest"
+local ohNumber2 = ezz
+workspace.ItemBoughtFromShop:InvokeServer(ohString1, ohNumber2)
+end)
+section6:addSlider("Buy Rare Chest", 0, 0, 100, function(ezzz)
+local ohString1 = "Rare Chest"
+local ohNumber2 = ezzz
+workspace.ItemBoughtFromShop:InvokeServer(ohString1, ohNumber2)
+end)
+section6:addSlider("Buy Epic Chest", 0, 0, 100, function(starf)
+local ohString1 = "Epic Chest"
+local ohNumber2 = starf
+workspace.ItemBoughtFromShop:InvokeServer(ohString1, ohNumber2)
+end)
+section6:addSlider("Legendary Chest", 0, 0, 100, function(starf)
+local ohString1 = "Legendary Chest"
+local ohNumber2 = 1
+workspace.ItemBoughtFromShop:InvokeServer(ohString1, ohNumber2)
+end)
+
+local theme = venyx:addPage("Theme", 5012544693)
+local colors = theme:addSection("Colors")
+
+for theme, color in pairs(themes) do
+	colors:addColorPicker(theme, color, function(color3)
+		venyx:setTheme(theme, color3)
+	end)
+end
+    
+end
+if game.PlaceId == 1962086868 then
+print"tower of hell"
+end
