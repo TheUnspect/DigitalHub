@@ -1,1 +1,36 @@
-"print " netoie mon caca erik
+lp = game:service'Players'.LocalPlayer
+uis = lp:GetMouse()
+uis.KeyDown:Connect(function(key)
+    if key == 'W' or key == 'w' then
+        W = true
+    end
+end)
+uis.KeyUp:Connect(function(key)
+    if key == 'W' or key == 'w' then
+        W = false
+    end
+end)
+lp = game:service'Players'.LocalPlayer.Character
+for i,v in pairs(workspace.Vehicles:GetDescendants()) do
+    if v:IsA"StringValue" then
+        if v.Value == game:service'Players'.LocalPlayer.Name then
+            car = v.Parent.Parent
+        end
+    end
+end
+_G.Fly = game:service'RunService'.Stepped:Connect(function()
+    if car then
+        for i,v in pairs(car:GetDescendants()) do
+            if v:IsA"BasePart" then
+                v.Velocity = Vector3.new(0,0,0)
+            end
+        end
+    end
+    if W and car then
+        for i,v in pairs(car:GetDescendants()) do
+            if v:IsA"BasePart" then
+                v.CFrame = v.CFrame + workspace.CurrentCamera.CFrame.LookVector*2.5
+            end
+        end
+    end
+end)
